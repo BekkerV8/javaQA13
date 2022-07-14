@@ -179,7 +179,22 @@ class ProductManagerTest {
     @Test
     void shouldNotFound() {
         Product[] expected = new Product[0];
-        Product[] actual = manager.searchBy("Something");
+        Product[] actual = manager.searchBy("iPhone 5s");
         assertArrayEquals(expected, actual);
     }
+    @Test
+    public void shouldFindSeveralItemsByNameBook() {
+
+        Product[] expected = new Product[]{book1, book2, book3};
+        Product[] actual = manager.searchBy("И");
+        assertArrayEquals(expected, actual);
+    }
+    @Test
+    public void shouldFindSeveralItemsByNameSmartphone() {
+
+        Product[] expected = new Product[]{smartphone1, smartphone2, smartphone3};
+        Product[] actual = manager.searchBy("iPhone 13");
+        assertArrayEquals(expected, actual);
+    }
+
 }
